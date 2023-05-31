@@ -41,6 +41,30 @@ public class AeropuertoAvion {
 	
 	@Column(name="VC_ESTADO")
 	private String estado;
+
+	public Long getIdAeropuertoAvion() {
+		return idAeropuertoAvion;
+	}
+
+	public void setIdAeropuertoAvion(Long idAeropuertoAvion) {
+		this.idAeropuertoAvion = idAeropuertoAvion;
+	}
+
+	public Aeropuerto getAeropuerto() {
+		return aeropuerto;
+	}
+
+	public void setAeropuerto(Aeropuerto aeropuerto) {
+		this.aeropuerto = aeropuerto;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 	
 
 }

@@ -43,6 +43,46 @@ public class Avion {
 	
 	@Column(name="VC_ESTADO")
 	private String estado;
+
+	public Long getIdAvion() {
+		return idAvion;
+	}
+
+	public void setIdAvion(Long idAvion) {
+		this.idAvion = idAvion;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public int getCapacidad() {
+		return capacidad;
+	}
+
+	public void setCapacidad(int capacidad) {
+		this.capacidad = capacidad;
+	}
+
+	public Aerolinea getAerolinea() {
+		return aerolinea;
+	}
+
+	public void setAerolinea(Aerolinea aerolinea) {
+		this.aerolinea = aerolinea;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 	
 	//@ManyToMany(fetch =FetchType.LAZY, cascade = CascadeType.ALL)
 	//private List<AeropuertoAvion> aeropuertoAvion;

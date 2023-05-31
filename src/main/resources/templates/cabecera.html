@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+    <header th:fragment="header_main">
+        <nav class="navbar navbar-expand-lg navbar bg">
+            <div class="container-fluid">
+              <a class="navbar-brand header" href="../home">AIR Happy</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle header" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Registros
+                    </a>
+                    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="../nuevoEmpleado">Empleados</a></li>
+                      <li><a class="dropdown-item" href="../nuevoVuelo">Vuelos</a></li>
+                      <!-- <li><hr class="dropdown-divider"></li> -->
+                      <li><a class="dropdown-item" href="../nuevoAeropuerto">Aeropuertos</a></li>
+                      <li><a class="dropdown-item" href="../nuevo">Aerolinea</a></li>
+                      <li><a class="dropdown-item" href="../nuevoEscala">Escala</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle header" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Listados
+                    </a>
+                    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="../empleados">Empleados</a></li>
+                      <li><a class="dropdown-item" href="../vuelo">Vuelos</a></li>
+                      <!-- <li><hr class="dropdown-divider"></li> -->
+                      <li><a class="dropdown-item" href="../aeropuertos">Aeropuertos</a></li>
+                      <li><a class="dropdown-item" href="../">Aerolinea</a></li>
+                      <li><a class="dropdown-item" href="../escala">Escala</a></li>
+                      
+                    </ul>
+                  </li>
+                  <br />
+                  <li class="nav-item">
+                    <a class="nav-link active header" aria-current="page" href="../programaVuelo" style="color: white;">Programa vuelos</a>
+                  </li>
+
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+    </header>
+</body>
+</html>

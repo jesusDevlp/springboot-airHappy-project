@@ -29,18 +29,23 @@ public class Avion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="IN_ID_AVION")
-	private Integer idAvion;
+	private Long idAvion;
+	
+	@Column(name="VC_MODELO")
 	private String modelo;
+	
+	@Column(name="IN_CAPACIDAD")
 	private int capacidad;
 	
 	@ManyToOne
 	@JoinColumn(name ="IN_ID_AEROLINEA")
 	private Aerolinea aerolinea;
 	
+	@Column(name="VC_ESTADO")
 	private String estado;
 	
-	@ManyToMany(fetch =FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<AeropuertoAvion> aerpuertoAvion;
+	//@ManyToMany(fetch =FetchType.LAZY, cascade = CascadeType.ALL)
+	//private List<AeropuertoAvion> aeropuertoAvion;
 	
 	
 	

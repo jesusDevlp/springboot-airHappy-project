@@ -13,6 +13,6 @@ public interface ProgramaVueloService {
 	
 	public void eliminar(ProgramaVuelo programaVuelo);
 	
-	public ProgramaVuelo encontrarAvion(ProgramaVuelo programaVuelo);
+	public ProgramaVuelo encontrarProgramaVuelo(ProgramaVuelo programaVuelo);
 
 }

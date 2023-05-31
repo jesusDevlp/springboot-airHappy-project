@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.cibertec.air.domain.Empleado;
 
 @Repository
-public interface EmpleadoDao extends JpaRepository<Empleado, Integer>{
+public interface EmpleadoDao extends JpaRepository<Empleado, Long>{
 
 }

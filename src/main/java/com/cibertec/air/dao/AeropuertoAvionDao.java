@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.cibertec.air.domain.AeropuertoAvion;
 
 @Repository
-public interface AeropuertoAvionDao extends JpaRepository<AeropuertoAvion, Integer> {
+public interface AeropuertoAvionDao extends JpaRepository<AeropuertoAvion, Long> {
 
 }

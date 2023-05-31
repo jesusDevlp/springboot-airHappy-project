@@ -12,6 +12,6 @@ public interface EmpleadoService {
 	
 	public void eliminar(Empleado empleado);
 	
-	public Empleado encontrarAvion(Empleado empleado);
+	public Empleado encontrarEmpleado(Empleado empleado);
 
 }

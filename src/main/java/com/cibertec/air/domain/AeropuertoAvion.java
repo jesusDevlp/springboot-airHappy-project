@@ -25,7 +25,7 @@ public class AeropuertoAvion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="IN_ID_AEROPUERTO_AVION")
-	private Integer idAeropuertoAvion;
+	private Long idAeropuertoAvion;
 	
 	@ManyToOne
 	@JoinColumn(name ="IN_ID_AEROPUERTO")
@@ -35,11 +35,11 @@ public class AeropuertoAvion {
 	//@OneToMany (mappedBy = "AEROPUERTO_AVION")
 	//List<Avion> avion;
 	
-	@ManyToMany(mappedBy = "aerpuertoAvion", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Avion> avion;
+	//@ManyToMany(mappedBy = "aeropuertoAvion", cascade = CascadeType.ALL, fetch = FetchType.LAZY)	
+	//private List<Avion> avion;
 	
 	
-	
+	@Column(name="VC_ESTADO")
 	private String estado;
 	
 

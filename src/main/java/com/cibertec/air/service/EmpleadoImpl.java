@@ -2,6 +2,7 @@ package com.cibertec.air.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,6 +12,7 @@ import com.cibertec.air.domain.Empleado;
 @Service
 public class EmpleadoImpl implements EmpleadoService {
 
+	@Autowired
 	private EmpleadoDao empleadoDao;
 	
 	@Override
@@ -35,7 +37,7 @@ public class EmpleadoImpl implements EmpleadoService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public Empleado encontrarAvion(Empleado empleado) {
+	public Empleado encontrarEmpleado(Empleado empleado) {
 		return empleadoDao.findById(empleado.getIdEmpleado()).orElse(null);
 	}
 

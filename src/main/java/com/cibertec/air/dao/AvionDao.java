@@ -6,6 +6,6 @@ import com.cibertec.air.domain.Avion;
 
 
 @Repository
-public interface AvionDao extends JpaRepository<Avion, Integer> {
+public interface AvionDao extends JpaRepository<Avion, Long> {
 
 }

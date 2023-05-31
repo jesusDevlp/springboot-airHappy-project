@@ -2,6 +2,7 @@ package com.cibertec.air.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,12 +12,12 @@ import com.cibertec.air.domain.Aerolinea;
 @Service
 public class AerolineaServiceImpl  implements AerolineaService{
 	
+	@Autowired
 	private AerolineaDao aerolineaDao;
 
 	@Override
-	@Transactional(readOnly = true)
 	public List<Aerolinea> listarAerolineas() {
-		return (List<Aerolinea>) aerolineaDao.findAll();
+		return aerolineaDao.findAll();
 	}
 
 	@Override

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.cibertec.air.domain.Escala;
 
 @Repository
-public interface EscalaDao extends JpaRepository<Escala, Integer> {
+public interface EscalaDao extends JpaRepository<Escala, Long> {
 
 }

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.cibertec.air.domain.Aerolinea;
 
 @Repository
-public interface AerolineaDao  extends JpaRepository<Aerolinea, Integer>{
+public interface AerolineaDao  extends JpaRepository<Aerolinea, Long>{
 
 }

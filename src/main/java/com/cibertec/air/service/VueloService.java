@@ -12,6 +12,6 @@ public interface VueloService {
 	
 	public void eliminar(Vuelo vuelo);
 	
-	public Vuelo encontrarAvion(Vuelo vuelo);
+	public Vuelo encontrarVuelo(Vuelo vuelo);
 
 }

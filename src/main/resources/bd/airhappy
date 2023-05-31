@@ -1,0 +1,145 @@
+DROP DATABASE IF EXISTS AIR_HAPPY;
+-- Crear la base de datos AIR_HAPPY
+CREATE DATABASE AIR_HAPPY;
+
+-- Seleccionar la base de datos creada
+USE AIR_HAPPY;
+
+-- Crear la tabla aerolinea
+CREATE TABLE AEROLINEA (
+    IN_ID_AEROLINEA INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    VC_NOMBRE_AEROLINEA VARCHAR(20),
+    VC_NRO_RUC VARCHAR(11),
+    VC_ESTADO VARCHAR(10)
+);
+
+insert into AEROLINEA values (1, 'LAN',09890989876,'Activo');
+select * from AEROLINEA;
+
+select * from AEROLINEA;
+-- Crear la tabla avion
+CREATE TABLE AVION (
+    IN_ID_AVION INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    VC_MODELO VARCHAR(15),
+    IN_CAPACIDAD INT,
+    IN_ID_AEROLINEA INT,
+    VC_ESTADO VARCHAR(10),
+    FOREIGN KEY (IN_ID_AEROLINEA) REFERENCES AEROLINEA(IN_ID_AEROLINEA)
+    
+);
+
+CREATE TABLE PAIS(
+IN_ID_PAIS INT PRIMARY KEY auto_increment NOT NULL,
+NOMBRE_PAIS VARCHAR(150) NOT NULL
+);
+
+
+insert into PAIS (NOMBRE_PAIS) values
+('Canada'),('Estados Unidos'),('Mexico'),('Belice'),('Costa Rica'),('El Salvador'),('Guatemala'),('Honduras'),('Guatemala'),('Nicaragua'),('Panama'),('Perú'),
+('Argentina'),('Bolivia'),('Brasil'),('Chile'),('Colombia'),('Ecuador'),('Paraguay'),('Uruguay'),('Venezuela');
+
+select * from PAIS;
+
+-- Crear la tabla Aeropuerto  
+CREATE TABLE AEROPUERTO (
+    IN_ID_AEROPUERTO INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    VC_NOMBRE VARCHAR(20),
+    VC_CIUDAD VARCHAR(20),
+    IN_ID_PAIS INT NOT NULL,
+    IN_ATERRIZAJES INT,
+    IN_DESPEGUES INT,
+    VC_ESTADO VARCHAR(10),
+    FOREIGN KEY (IN_ID_PAIS) REFERENCES PAIS(IN_ID_PAIS)
+    
+);
+
+select * from AEROPUERTO;
+
+insert into AEROPUERTO values (1, 'Jorge Chavez','Lima',12,100,200,'Activo');
+-- Crear la tabla aeropuerto_avion
+CREATE TABLE AEROPUERTO_AVION (
+    IN_ID_AEROPUERTO_AVION INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    IN_ID_AEROPUERTO INT NOT NULL,
+	IN_ID_AVION INT NOT NULL,
+    VC_ESTADO VARCHAR(10),
+   FOREIGN KEY (IN_ID_AEROPUERTO) REFERENCES AEROPUERTO(IN_ID_AEROPUERTO),
+    FOREIGN KEY (IN_ID_AVION) REFERENCES AVION(IN_ID_AVION)
+);
+
+-- Crear la tabla programa_vuelo
+CREATE TABLE PROGRAMA_VUELO (
+    IN_ID_PROGRAMA_VUELO INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    IN_ID_AEROLINEA INT,
+    VC_DIAS_DISPONIBLES INT NOT NULL,
+    VC_LUGARDESPEGUE VARCHAR(100),
+    VC_LUGAR_LLEGADA VARCHAR(100),
+    IN_ID_AEROPUERTO INT,
+    VC_ESTADO VARCHAR(10),
+    FOREIGN KEY (IN_ID_AEROLINEA) REFERENCES AEROLINEA(IN_ID_AEROLINEA),
+	FOREIGN KEY (IN_ID_AEROPUERTO) REFERENCES AEROPUERTO(IN_ID_AEROPUERTO)
+);
+
+insert into PROGRAMA_VUELO values(1,1,30,'Lima','Las Vegas',1,'Activo');
+
+select * from PROGRAMA_VUELO;
+
+-- Crear la tabla vuelo
+CREATE TABLE VUELO (
+    IN_ID_VUELO INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    IN_ID_PROGRAMA_VUELO INT NOT NULL,
+    DT_FECHA DATE,
+    IN_PLAZAS_VACIAS INT,
+    VC_ESTADO VARCHAR(10),
+    FOREIGN KEY (IN_ID_PROGRAMA_VUELO) REFERENCES PROGRAMA_VUELO(IN_ID_PROGRAMA_VUELO)
+);
+
+insert into VUELO values(1,1,now(),100,'Activo');
+
+select * from VUELO;
+
+-- Crear la tabla escala
+CREATE TABLE ESCALA (
+    IN_ID_ESCALA INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    IN_NO_ORDEN INT,
+    IN_NO_ESCALAS INT,
+    VC_SUBE_PASAJEROS INT,
+    VC_BAJAN_PASAJEROS INT,
+    IN_ID_PROGRAMA_VUELO INT,
+    VC_ESTADO VARCHAR(10),
+    FOREIGN KEY (IN_ID_PROGRAMA_VUELO) REFERENCES PROGRAMA_VUELO(IN_ID_PROGRAMA_VUELO)
+);
+
+insert into ESCALA values(1,1,3,14,20,3,'Activo');
+
+select * from ESCALA;
+
+
+CREATE TABLE DEPARTARMENTO(
+IN_ID_DEPARTAMENTO INT PRIMARY KEY auto_increment NOT NULL,
+VC_NOMBRE_DEPARTAMENTO VARCHAR(150) NOT NULL
+);
+
+
+insert into DEPARTARMENTO (VC_NOMBRE_DEPARTAMENTO) values
+('Amazonas'),('Áncash'),('Apurímac'),('Arequipa'),('Ayacucho'),('Cajamarca'),('Callao'),('Cusco'),('Huancavelica'),('Huánuco'),('Ica'),('Junín'),
+('La Libertad'),('Lambayeque'),('Lima Metropolitana'),('Loreto'),('Madre de Dios'),('Moquegua'),('Pasco'),('Piura'),('Puno'),('San Martín'),('Tacna'),('Tumbes'),('Ucayali');
+
+select * from DEPARTARMENTO;
+
+
+-- Crear la tabla empleados
+CREATE TABLE EMPLEADOS (
+   IN_ID_EMPLEADO INT PRIMARY KEY AUTO_INCREMENT,
+   VC_NOMBRE VARCHAR(10),
+   VC_APELLIDO VARCHAR(10),
+   IN_EDAD INT,
+   IN_SALARIO DECIMAL(10,2),
+   IN_ID_DEPARTAMENTO INT NOT NULL,
+   VC_ESTADO VARCHAR(10),
+   FOREIGN KEY (IN_ID_DEPARTAMENTO) REFERENCES DEPARTARMENTO(IN_ID_DEPARTAMENTO)
+   
+);
+
+insert into EMPLEADOS values(1,'Jesus','Morales',20,2500,15,'Activo');
+
+select * from EMPLEADOS;
